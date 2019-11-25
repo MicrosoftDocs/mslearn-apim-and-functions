@@ -12,8 +12,8 @@ az storage account create --name $STORAGE_ACCOUNT_NAME --location westus --resou
 printf "Storage account created.\n"
 # Create two functions in Azure
 printf "Creating function apps in Azure...\n"
-az functionapp create --resource-group $RESOURCE_GROUP --consumption-plan-location westus --name $PRODUCT_FUNCTION_NAME --storage-account $STORAGE_ACCOUNT_NAME --runtime dotnet
-az functionapp create --resource-group $RESOURCE_GROUP --consumption-plan-location westus --name $ORDER_FUNCTION_NAME --storage-account $STORAGE_ACCOUNT_NAME --runtime dotnet
+az functionapp create --resource-group $RESOURCE_GROUP --consumption-plan-location centralus --name $PRODUCT_FUNCTION_NAME --storage-account $STORAGE_ACCOUNT_NAME --runtime dotnet
+az functionapp create --resource-group $RESOURCE_GROUP --consumption-plan-location centralus --name $ORDER_FUNCTION_NAME --storage-account $STORAGE_ACCOUNT_NAME --runtime dotnet
 printf "Function apps created.\n"
 # Use zip deploy to publish the code
 printf "Publishing function source code...\n"
