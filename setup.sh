@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Set up randomized names for a storage account and two functions, which must be globally unique
 export STORAGE_ACCOUNT_NAME=storestorage$(openssl rand -hex 5)
 export PRODUCT_FUNCTION_NAME=ProductFunction$(openssl rand -hex 5)
