@@ -4,10 +4,11 @@
 export STORAGE_ACCOUNT_NAME=storestorage$(openssl rand -hex 5)
 export PRODUCT_FUNCTION_NAME=ProductFunction$(openssl rand -hex 5)
 export ORDER_FUNCTION_NAME=OrderFunction$(openssl rand -hex 5)
+export CURRENT_DIR=$(pwd)
 
 # Get the resource group and location
 export RESOURCE_GROUP=$(az group list --query "[0].name" -o tsv)
-export LOCATION=$(az group show --name $RESOURCE_GROUP | jq -r ".location")
+export LOCATION=$(az group show --name $RESOURCE_GROUP -o json| jq -r ".location")
 printf "\nThe resource group is called $RESOURCE_GROUP and is located in $LOCATION\n"
 
 # Create a storage account
@@ -28,8 +29,8 @@ do
     mkdir $zipFile
     unzip -q $zipFile.zip -d $zipFile
     cd $zipFile/bin/Debug/netcoreapp2.1
-    zip -q -r ~/OnlineStoreFuncs/$zipFile.PKG.zip ./*
-    cd ~/OnlineStoreFuncs/
+    zip -q -r $CURRENT_DIR/$zipFile.PKG.zip ./*
+    cd $CURRENT_DIR
 done
 printf "\nZip files built.\n"
 
