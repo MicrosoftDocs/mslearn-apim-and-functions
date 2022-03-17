@@ -18,8 +18,8 @@ printf "\nStorage account created.\n"
 
 # Create two functions in Azure
 printf "\nCreating function apps in Azure...\n"
-az functionapp create --resource-group $RESOURCE_GROUP --consumption-plan-location $LOCATION --name $PRODUCT_FUNCTION_NAME --storage-account $STORAGE_ACCOUNT_NAME --functions-version 2
-az functionapp create --resource-group $RESOURCE_GROUP --consumption-plan-location $LOCATION --name $ORDER_FUNCTION_NAME --storage-account $STORAGE_ACCOUNT_NAME --functions-version 2
+az functionapp create --resource-group $RESOURCE_GROUP --consumption-plan-location $LOCATION --name $PRODUCT_FUNCTION_NAME --storage-account $STORAGE_ACCOUNT_NAME --functions-version 3
+az functionapp create --resource-group $RESOURCE_GROUP --consumption-plan-location $LOCATION --name $ORDER_FUNCTION_NAME --storage-account $STORAGE_ACCOUNT_NAME --functions-version 3
 printf "\nFunction apps created.\n"
 
 # Building the zip files for the functions
