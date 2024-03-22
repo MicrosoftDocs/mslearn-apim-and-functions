@@ -22,6 +22,11 @@ az functionapp create --resource-group $RESOURCE_GROUP --consumption-plan-locati
 az functionapp create --resource-group $RESOURCE_GROUP --consumption-plan-location $LOCATION --name $ORDER_FUNCTION_NAME --storage-account $STORAGE_ACCOUNT_NAME --functions-version 4
 printf "\nFunction apps created.\n"
 
+# Add Azure Portal to CORS allowed origins for testing API in the portal
+printf "\nAdding Azure Portal URI to CORS Allowed origins.\n"
+az functionapp cors add --allowed-origins https://portal.azure.com --resource-group $RESOURCE_GROUP --name $PRODUCT_FUNCTION_NAME
+printf "\nAdded Azure Portal URI to CORS Allowed origins.\n"
+
 # Building the zip files for the functions
 printf "\nBuilding zip files for deployment...\n"
 for zipFile in ProductDetailsFunc OrderShippingFunc
